@@ -1,0 +1,19 @@
+{
+  "name": "ch04",
+  "version": "1.0.0",
+  "description": "meadowlark agency site",
+  "main": "04-meadowlark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "travel",
+    "Agency"
+  ],
+  "author": "do ji won",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3"
+  }
+}
