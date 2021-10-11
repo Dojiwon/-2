@@ -1,0 +1,22 @@
+{
+  "name": "ch08",
+  "version": "1.0.0",
+  "description": "server side template engine",
+  "main": "meadowlark.js",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "multiparty": "^4.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Dojiwom"
+  },
+  "author": "",
+  "license": "ISC"
+}
