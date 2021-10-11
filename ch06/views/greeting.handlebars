@@ -1,0 +1,35 @@
+<!-- HTML의 나머지 내용은 views/layouts/main.handlebars 를 보세요! -->
+<style>
+  dt {
+    font-weight: bold;
+    padding-top: 1em;
+  }
+</style>
+<h2>안녕</h2>
+<dl>
+
+  <dt>메세지:</dt>
+  <dd>
+  {{message}}
+    <br />(수정하려면 04-views-with-content.js 파일을 수정하시오)
+  </dd>
+
+  <dt>스타일:</dt>
+  <dd>
+    {{style}}
+    <br />(수정하려면 URL을 수정하시오; 예, <a href="/greeting/?style=fancy">/greeting/?style=fancy</a>)
+  </dd>
+
+  <dt>쿠키에 저장된 사용자 아이디:</dt>
+  <dd>
+    {{userid}}
+    <br />(바꾸려면 <a href="/set-random-userid">이곳</a> 을 누르시오)
+  </dd>
+
+  <dt>세션에 저장된 사용자명:</dt>
+  <dd>
+    {{username}}
+    <br />(바꾸려면 <a href="/set-random-username">이곳</a> 을 누르시오)
+  </dd>
+
+</dl>

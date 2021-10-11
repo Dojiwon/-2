@@ -1,0 +1,20 @@
+<!-- HTML의 나머지 내용은 views/layouts/main.handlebars 를 보세요! -->
+<h2>본인의 정보를 입력하세요</h2>
+<p>20212096 도지원</p>
+<form action="/process-contact" method="post">
+  <div>
+    <label>이름:
+      <input name="name" />
+    </label>
+  </div>
+  <br />
+  <div>
+    <label>전자메일:
+      <input name="email" type="email" />
+    </label>
+  </div>
+  <br />
+  <div>
+    <button type="submit">보내기</button>
+  </div>
+</form>

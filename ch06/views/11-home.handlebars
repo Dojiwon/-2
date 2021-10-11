@@ -1,0 +1,67 @@
+<!-- HTML의 나머지 내용은 views/layouts/main.handlebars 를 보세요! -->
+<h2>본인의 정보를 입력하세요</h2>
+<form action="/process-contact" method="post">
+  <div>
+    <label>이름:
+      <input name="name" />
+    </label>
+  </div>
+  <br />
+  <div>
+    <label>전자메일:
+      <input name="email" type="email" />
+    </label>
+  </div>
+  <br />
+  <div>
+    <label>시뮬레이터 오류:
+      <input type="checkbox" name="simulateError" />
+    </label>
+  </div>
+  <br />
+  <div>
+    <label>Ajax를 사용하시겠습니까?:
+      <input type="checkbox" name="useAjax" />
+    </label>
+  </div>
+  <br />
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+<script>
+  // API 호출하기 위해 작은 유틸리티 객체
+  const api = {
+    post(path, data) {
+      const body = typeof data === 'object' ? JSON.stringify(data) : data
+      const headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
+      return fetch(path, { method: "POST", body, headers })
+        .then(res => {
+          if(res.status < 200 || res.status >= 400)
+            return Promise.reject(new Error(`API error: ${res.status}`))
+          return res.json()
+        })
+    }
+  }
+  // 폼 제출 가로채기
+  document.querySelector('form').addEventListener('submit', evt => {
+    const formdata = new FormData(evt.target)
+    if(!formdata.get('useAjax')) return   // 만약에ajax를 사용하지 않는 경우 일반적인 양식으로 제출을 진행합니다.
+    // 일반 형식 제출 중단하고 ajax를 사용하게 됩니다.
+    evt.preventDefault()
+    const data = {
+      name: formdata.get('name'),
+      email: formdata.get('email'),
+      simulateError: formdata.get('simulateError'),
+    }
+    // 기존의 "감사합니다" 및 "오류" 페이지로 리디렉션하고 있지만
+    // 실제 애플리케이션에서는 DOM을 다음과 같이 동적으로 변경합니다
+    // 성공하거나 아니면 실패로 나타나게 됩니다.
+    api.post('/process-contact', data)
+      .then(() => window.location = '/thank-you')
+      .catch(() => window.location = '/contact-error')
+  })
+</script>
